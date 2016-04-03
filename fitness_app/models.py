@@ -5,6 +5,7 @@ from django.db import models
 class Project(models.Model):
     projectid = models.IntegerField(default=0)  # 项目id
     projectname = models.CharField(max_length=128)  # 项目名
+    imgpath = models.CharField(max_length=128)  #图片路劲
 
     def __unicode__(self):
         return self.projectname
