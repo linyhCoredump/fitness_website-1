@@ -17,12 +17,9 @@
 	<body id="top">
 
 		<!-- Header -->
-        <!--ajax刷新动作 -->
-        <script type="text/javascript">
-         
-        </script>
+      
 			<header id="header">
-				<a href="#" class="image avatar"><img id="sweet" src="{% static "images/avatar.jpg" %}" alt="" /></a>
+				<a href="" class="image avatar"><img id="sweet" src="{% static "images/avatar.jpg" %}" alt="" /></a>
 				<h1><strong>I am Strata</strong>, a super simple<br />
 				responsive site template freebie<br />
 				crafted by <a href="http://html5up.net">HTML5 UP</a>.</h1>
@@ -38,17 +35,23 @@
 							magna sed accumsan arcu neque.</h2>
 						</header>
 						<p>Accumsan orci faucibus id eu lorem semper. Eu ac iaculis ac nunc nisi lorem vulputate lorem neque cubilia ac in adipiscing in curae lobortis tortor primis integer massa adipiscing id nisi accumsan pellentesque commodo blandit enim arcu non at amet id arcu magna. Accumsan orci faucibus id eu lorem semper nunc nisi lorem vulputate lorem neque cubilia.</p>
-						<ul class="actions">
-							<li><a href="#" class="button">Learn More</a></li>
-						</ul>
+                        
+						<ul class="actions" style="">
+                           <!-- <li><input id="show1" type="button" value="显 示 会 员 动 态" class="button"/></li> -->
+                            <li><a id="show1" type="button" class="button">显 示 会 员 动 态</a></li>
+                             <!--<li><input id="show2" style="display:none"  type="button"  value="显 示 项 目 类 型" class="button"/></li>-->
+						    <li><a id="show2" type="button" class="button" style="display:none">显 示 锻 炼 项 目</a></li>
+                        </ul>
+                          
 					</section>
+ 
 
 				<!-- Two -->
                 
 					<section id="two">
-						<h2>Recent Work</h2>
                         
-						<div class="row">
+						<h2 id="exertypeid" style="" >Recent Work</h2>
+						<div id="exertype" class="row" style="">
                                           
                             {% for sub in project %}
                             
@@ -61,12 +64,28 @@
 							</article>
                               
                             {% endfor %}
-               
 						</div>
-                      
+                        
+                        <h2 id="dynamicid" style="display:none">User dynamic</h2>
+                        <div id="dynamic" class="row" style="display:none">
+                                  {% for sub in project %}
+                            
+							<article class="6u 12u$(xsmall) work-item">
+								<a href="" class="image avatar"><img src="{% static sub.imgpath %}" alt="" /></a>
+								<h3>{{ sub.projectname }}</h3>
+                                <h4>你是不是傻</h4>
+								<p>这是不是非常棒.{{ sub.imgpath }} </p>
+                                
+							</article>
+                              
+                            {% endfor %} 
+                        </div>
+                        
+                      <!--
 						<ul class="actions">
 							<li><a href="#" class="button">Full Portfolio</a></li>
 						</ul>
+                        -->
 					</section>
                                    
 
@@ -131,6 +150,35 @@
 			<script src="{% static "assets/js/main.js" %}"></script>
 
 	</body>
+                         <!--ajax刷新动作 -->
+                    <script  type="text/javascript">
+                    
+                    var show1=document.getElementById("show1");
+                    var show2=document.getElementById("show2");
+                    var h1=document.getElementById("exertypeid");
+                    var h2=document.getElementById("dynamicid");
+                    var div1 = document.getElementById("exertype"); 
+                    var div2 = document.getElementById("dynamic");
+                    show1.onclick=function(){
+                        this.style.display="none";
+                        show2.style.display="block";
+                        h1.style.display="none";
+                         h2.style.display="block";
+                         div1.style.display="none";
+                        div2.style.display="block";
+                        
+                    };
+                    show2.onclick=function(){
+                        this.style.display="none";
+                        show1.style.display="block";
+                        h1.style.display="block";
+                         h2.style.display="none";
+                         div2.style.display="none";
+                        div1.style.display="block";
+                        
+                    }
+                    
+                    </script>
 </html>
 
 

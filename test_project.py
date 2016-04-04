@@ -74,7 +74,7 @@ def testscript():
         stime=40,
         slvl=3)
         
-    fourth_cat = add_project(4,'动作入门','images/fulls/04.jpg')
+    fourth_cat = add_project(4,'跑步基础','images/fulls/04.jpg')
     add_subject(pid=fourth_cat,
         sname='零基础适应性训练',
         stime=40,
