@@ -12,9 +12,9 @@ class Project(models.Model):
 
 
 class People(models.Model):
-    uid = models.AutoField(primary_key=True)        # 用户id
-    projectid = models.ForeignKey(Project)                  # 项目id
-    name = models.CharField(max_length=128, unique=True)  # 名字
+    uid = models.AutoField(primary_key=True)        # 用户id              
+    #project_p = models.ForeignKey(Project)    # 项目id
+    name = models.CharField(max_length=128)  # 名字
     age = models.IntegerField(default=12)                   # 年龄
     hight = models.IntegerField(default=0)                  # 身高
     weight = models.IntegerField(default=0)                 # 体重
@@ -30,7 +30,7 @@ class People(models.Model):
 
 
 class Source(models.Model):
-    uid = models.ForeignKey(People)
+    user = models.ForeignKey(People)
     picpath = models.CharField(max_length=128)  # 图片路径
     text = models.CharField(max_length=512)  # 分享文字
     sendtime = models.DateField(null=True)  # 时间戳
@@ -40,7 +40,7 @@ class Source(models.Model):
 
 
 class Subject(models.Model):
-    projectid = models.ForeignKey(Project)  # 子项目id
+    project_s = models.ForeignKey(Project)  # 子项目id
     exername = models.CharField(max_length=64)  # 子项目名称
     exertime = models.IntegerField(default=0)  # 子项目时长
     level = models.IntegerField(default=0)  # 级别
