@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from fitness_app.models import Project, Subject, People, Source
+from fitness_app.models import Project, Subject, People
 
 
 def show(request):
