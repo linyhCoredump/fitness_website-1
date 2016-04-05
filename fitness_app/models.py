@@ -14,8 +14,6 @@ class Project(models.Model):
 
 class People(models.Model):
     userprofile = models.ForeignKey(User)
-    # pwd = models.CharField(max_length=32)  # 密码
-    # ame = models.CharField(max_length=128, unique=True)  # 名字
     age = models.IntegerField(default=12)                   # 年龄
     hight = models.IntegerField(default=0)                  # 身高
     weight = models.IntegerField(default=0)                 # 体重
@@ -30,11 +28,10 @@ class People(models.Model):
     sendtime = models.DateField(null=True)  # 时间戳
 
     def __unicode__(self):
-        return self.age
-
+        return self.name
 
 class Subject(models.Model):
-    projectid = models.ForeignKey(Project)  # 子项目id
+    project_s = models.ForeignKey(Project)  # 子项目id
     exername = models.CharField(max_length=64)  # 子项目名称
     exertime = models.IntegerField(default=0)  # 子项目时长
     level = models.IntegerField(default=0)  # 级别
